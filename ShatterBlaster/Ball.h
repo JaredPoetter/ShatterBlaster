@@ -6,8 +6,13 @@
 //  Copyright (c) 2014 JP. All rights reserved.
 //
 
+#import <SpriteKit/SpriteKit.h>
+
 #ifndef ShatterBlaster_Ball_h
 #define ShatterBlaster_Ball_h
 
+@interface Ball : SKShapeNode
+
+@end
 
 #endif
