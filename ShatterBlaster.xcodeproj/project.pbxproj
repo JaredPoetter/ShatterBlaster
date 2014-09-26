@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7FD4689919D4EB6600B69A9C /* Ball.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4689819D4EB6600B69A9C /* Ball.m */; };
+		7FD4689D19D4EBA200B69A9C /* Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4689C19D4EBA200B69A9C /* Block.m */; };
+		7FD4689F19D4EBBD00B69A9C /* Paddle.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4689E19D4EBBD00B69A9C /* Paddle.m */; };
 		7FE29F2719D4E3EE0001FE40 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE29F2619D4E3EE0001FE40 /* main.m */; };
 		7FE29F2A19D4E3EE0001FE40 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE29F2919D4E3EE0001FE40 /* AppDelegate.m */; };
 		7FE29F2D19D4E3EE0001FE40 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE29F2C19D4E3EE0001FE40 /* GameScene.m */; };
@@ -29,6 +32,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7FD4689819D4EB6600B69A9C /* Ball.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ball.m; sourceTree = "<group>"; };
+		7FD4689A19D4EB7100B69A9C /* Ball.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ball.h; sourceTree = "<group>"; };
+		7FD4689B19D4EB8500B69A9C /* Block.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Block.h; sourceTree = "<group>"; };
+		7FD4689C19D4EBA200B69A9C /* Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Block.m; sourceTree = "<group>"; };
+		7FD4689E19D4EBBD00B69A9C /* Paddle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Paddle.m; sourceTree = "<group>"; };
+		7FD468A019D4EBC800B69A9C /* Paddle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Paddle.h; sourceTree = "<group>"; };
 		7FE29F2119D4E3EE0001FE40 /* ShatterBlaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShatterBlaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FE29F2519D4E3EE0001FE40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FE29F2619D4E3EE0001FE40 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -65,6 +74,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7FD4689719D4EB3B00B69A9C /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				7FD4689B19D4EB8500B69A9C /* Block.h */,
+				7FD4689C19D4EBA200B69A9C /* Block.m */,
+				7FD4689A19D4EB7100B69A9C /* Ball.h */,
+				7FD4689819D4EB6600B69A9C /* Ball.m */,
+				7FD468A019D4EBC800B69A9C /* Paddle.h */,
+				7FD4689E19D4EBBD00B69A9C /* Paddle.m */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
 		7FE29F1819D4E3EE0001FE40 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +111,7 @@
 				7FE29F2819D4E3EE0001FE40 /* AppDelegate.h */,
 				7FE29F2919D4E3EE0001FE40 /* AppDelegate.m */,
 				7FE29F2B19D4E3EE0001FE40 /* GameScene.h */,
+				7FD4689719D4EB3B00B69A9C /* Entities */,
 				7FE29F2C19D4E3EE0001FE40 /* GameScene.m */,
 				7FE29F2E19D4E3EE0001FE40 /* GameScene.sks */,
 				7FE29F3019D4E3EE0001FE40 /* GameViewController.h */,
@@ -228,8 +251,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FD4689F19D4EBBD00B69A9C /* Paddle.m in Sources */,
+				7FD4689919D4EB6600B69A9C /* Ball.m in Sources */,
 				7FE29F3219D4E3EE0001FE40 /* GameViewController.m in Sources */,
 				7FE29F2A19D4E3EE0001FE40 /* AppDelegate.m in Sources */,
+				7FD4689D19D4EBA200B69A9C /* Block.m in Sources */,
 				7FE29F2D19D4E3EE0001FE40 /* GameScene.m in Sources */,
 				7FE29F2719D4E3EE0001FE40 /* main.m in Sources */,
 			);
@@ -422,6 +448,7 @@
 				7FE29F4B19D4E3EF0001FE40 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7FE29F4C19D4E3EF0001FE40 /* Build configuration list for PBXNativeTarget "ShatterBlasterTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +457,7 @@
 				7FE29F4E19D4E3EF0001FE40 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
