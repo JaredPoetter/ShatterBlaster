@@ -1,0 +1,437 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7FE29F2719D4E3EE0001FE40 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE29F2619D4E3EE0001FE40 /* main.m */; };
+		7FE29F2A19D4E3EE0001FE40 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE29F2919D4E3EE0001FE40 /* AppDelegate.m */; };
+		7FE29F2D19D4E3EE0001FE40 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE29F2C19D4E3EE0001FE40 /* GameScene.m */; };
+		7FE29F2F19D4E3EE0001FE40 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7FE29F2E19D4E3EE0001FE40 /* GameScene.sks */; };
+		7FE29F3219D4E3EE0001FE40 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE29F3119D4E3EE0001FE40 /* GameViewController.m */; };
+		7FE29F3519D4E3EE0001FE40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FE29F3319D4E3EE0001FE40 /* Main.storyboard */; };
+		7FE29F3719D4E3EE0001FE40 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FE29F3619D4E3EE0001FE40 /* Images.xcassets */; };
+		7FE29F3A19D4E3EE0001FE40 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FE29F3819D4E3EE0001FE40 /* LaunchScreen.xib */; };
+		7FE29F4619D4E3EF0001FE40 /* ShatterBlasterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE29F4519D4E3EF0001FE40 /* ShatterBlasterTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7FE29F4019D4E3EF0001FE40 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7FE29F1919D4E3EE0001FE40 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7FE29F2019D4E3EE0001FE40;
+			remoteInfo = ShatterBlaster;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7FE29F2119D4E3EE0001FE40 /* ShatterBlaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShatterBlaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FE29F2519D4E3EE0001FE40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7FE29F2619D4E3EE0001FE40 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7FE29F2819D4E3EE0001FE40 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		7FE29F2919D4E3EE0001FE40 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		7FE29F2B19D4E3EE0001FE40 /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		7FE29F2C19D4E3EE0001FE40 /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
+		7FE29F2E19D4E3EE0001FE40 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		7FE29F3019D4E3EE0001FE40 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		7FE29F3119D4E3EE0001FE40 /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		7FE29F3419D4E3EE0001FE40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7FE29F3619D4E3EE0001FE40 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7FE29F3919D4E3EE0001FE40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		7FE29F3F19D4E3EF0001FE40 /* ShatterBlasterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShatterBlasterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FE29F4419D4E3EF0001FE40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7FE29F4519D4E3EF0001FE40 /* ShatterBlasterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShatterBlasterTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7FE29F1E19D4E3EE0001FE40 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7FE29F3C19D4E3EF0001FE40 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7FE29F1819D4E3EE0001FE40 = {
+			isa = PBXGroup;
+			children = (
+				7FE29F2319D4E3EE0001FE40 /* ShatterBlaster */,
+				7FE29F4219D4E3EF0001FE40 /* ShatterBlasterTests */,
+				7FE29F2219D4E3EE0001FE40 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7FE29F2219D4E3EE0001FE40 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7FE29F2119D4E3EE0001FE40 /* ShatterBlaster.app */,
+				7FE29F3F19D4E3EF0001FE40 /* ShatterBlasterTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7FE29F2319D4E3EE0001FE40 /* ShatterBlaster */ = {
+			isa = PBXGroup;
+			children = (
+				7FE29F2819D4E3EE0001FE40 /* AppDelegate.h */,
+				7FE29F2919D4E3EE0001FE40 /* AppDelegate.m */,
+				7FE29F2B19D4E3EE0001FE40 /* GameScene.h */,
+				7FE29F2C19D4E3EE0001FE40 /* GameScene.m */,
+				7FE29F2E19D4E3EE0001FE40 /* GameScene.sks */,
+				7FE29F3019D4E3EE0001FE40 /* GameViewController.h */,
+				7FE29F3119D4E3EE0001FE40 /* GameViewController.m */,
+				7FE29F3319D4E3EE0001FE40 /* Main.storyboard */,
+				7FE29F3619D4E3EE0001FE40 /* Images.xcassets */,
+				7FE29F3819D4E3EE0001FE40 /* LaunchScreen.xib */,
+				7FE29F2419D4E3EE0001FE40 /* Supporting Files */,
+			);
+			path = ShatterBlaster;
+			sourceTree = "<group>";
+		};
+		7FE29F2419D4E3EE0001FE40 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7FE29F2519D4E3EE0001FE40 /* Info.plist */,
+				7FE29F2619D4E3EE0001FE40 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7FE29F4219D4E3EF0001FE40 /* ShatterBlasterTests */ = {
+			isa = PBXGroup;
+			children = (
+				7FE29F4519D4E3EF0001FE40 /* ShatterBlasterTests.m */,
+				7FE29F4319D4E3EF0001FE40 /* Supporting Files */,
+			);
+			path = ShatterBlasterTests;
+			sourceTree = "<group>";
+		};
+		7FE29F4319D4E3EF0001FE40 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7FE29F4419D4E3EF0001FE40 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7FE29F2019D4E3EE0001FE40 /* ShatterBlaster */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7FE29F4919D4E3EF0001FE40 /* Build configuration list for PBXNativeTarget "ShatterBlaster" */;
+			buildPhases = (
+				7FE29F1D19D4E3EE0001FE40 /* Sources */,
+				7FE29F1E19D4E3EE0001FE40 /* Frameworks */,
+				7FE29F1F19D4E3EE0001FE40 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShatterBlaster;
+			productName = ShatterBlaster;
+			productReference = 7FE29F2119D4E3EE0001FE40 /* ShatterBlaster.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7FE29F3E19D4E3EF0001FE40 /* ShatterBlasterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7FE29F4C19D4E3EF0001FE40 /* Build configuration list for PBXNativeTarget "ShatterBlasterTests" */;
+			buildPhases = (
+				7FE29F3B19D4E3EF0001FE40 /* Sources */,
+				7FE29F3C19D4E3EF0001FE40 /* Frameworks */,
+				7FE29F3D19D4E3EF0001FE40 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7FE29F4119D4E3EF0001FE40 /* PBXTargetDependency */,
+			);
+			name = ShatterBlasterTests;
+			productName = ShatterBlasterTests;
+			productReference = 7FE29F3F19D4E3EF0001FE40 /* ShatterBlasterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7FE29F1919D4E3EE0001FE40 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = JP;
+				TargetAttributes = {
+					7FE29F2019D4E3EE0001FE40 = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+					7FE29F3E19D4E3EF0001FE40 = {
+						CreatedOnToolsVersion = 6.0.1;
+						TestTargetID = 7FE29F2019D4E3EE0001FE40;
+					};
+				};
+			};
+			buildConfigurationList = 7FE29F1C19D4E3EE0001FE40 /* Build configuration list for PBXProject "ShatterBlaster" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7FE29F1819D4E3EE0001FE40;
+			productRefGroup = 7FE29F2219D4E3EE0001FE40 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7FE29F2019D4E3EE0001FE40 /* ShatterBlaster */,
+				7FE29F3E19D4E3EF0001FE40 /* ShatterBlasterTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7FE29F1F19D4E3EE0001FE40 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FE29F3A19D4E3EE0001FE40 /* LaunchScreen.xib in Resources */,
+				7FE29F3719D4E3EE0001FE40 /* Images.xcassets in Resources */,
+				7FE29F2F19D4E3EE0001FE40 /* GameScene.sks in Resources */,
+				7FE29F3519D4E3EE0001FE40 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7FE29F3D19D4E3EF0001FE40 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7FE29F1D19D4E3EE0001FE40 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FE29F3219D4E3EE0001FE40 /* GameViewController.m in Sources */,
+				7FE29F2A19D4E3EE0001FE40 /* AppDelegate.m in Sources */,
+				7FE29F2D19D4E3EE0001FE40 /* GameScene.m in Sources */,
+				7FE29F2719D4E3EE0001FE40 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7FE29F3B19D4E3EF0001FE40 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FE29F4619D4E3EF0001FE40 /* ShatterBlasterTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7FE29F4119D4E3EF0001FE40 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7FE29F2019D4E3EE0001FE40 /* ShatterBlaster */;
+			targetProxy = 7FE29F4019D4E3EF0001FE40 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7FE29F3319D4E3EE0001FE40 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7FE29F3419D4E3EE0001FE40 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7FE29F3819D4E3EE0001FE40 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7FE29F3919D4E3EE0001FE40 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7FE29F4719D4E3EF0001FE40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		7FE29F4819D4E3EF0001FE40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7FE29F4A19D4E3EF0001FE40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ShatterBlaster/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7FE29F4B19D4E3EF0001FE40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ShatterBlaster/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		7FE29F4D19D4E3EF0001FE40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ShatterBlasterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShatterBlaster.app/ShatterBlaster";
+			};
+			name = Debug;
+		};
+		7FE29F4E19D4E3EF0001FE40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ShatterBlasterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShatterBlaster.app/ShatterBlaster";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7FE29F1C19D4E3EE0001FE40 /* Build configuration list for PBXProject "ShatterBlaster" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7FE29F4719D4E3EF0001FE40 /* Debug */,
+				7FE29F4819D4E3EF0001FE40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7FE29F4919D4E3EF0001FE40 /* Build configuration list for PBXNativeTarget "ShatterBlaster" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7FE29F4A19D4E3EF0001FE40 /* Debug */,
+				7FE29F4B19D4E3EF0001FE40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7FE29F4C19D4E3EF0001FE40 /* Build configuration list for PBXNativeTarget "ShatterBlasterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7FE29F4D19D4E3EF0001FE40 /* Debug */,
+				7FE29F4E19D4E3EF0001FE40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7FE29F1919D4E3EE0001FE40 /* Project object */;
+}
