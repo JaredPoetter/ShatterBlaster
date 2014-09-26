@@ -13,6 +13,8 @@
 
 @interface Paddle : SKShapeNode
 
+@property (nonatomic) CGPoint touchOffset;
+
 @end
 
 #endif
