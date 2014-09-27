@@ -11,9 +11,31 @@
 #import "Ball.h"
 #import "Paddle.h"
 
-#define PADDLE_HEIGHT 50.0
-#define PADDLE_SIZE_HEIGHT 40.0
-#define PADDLE_SIZE_WIDTH 400.0
+//Names for the different objects
+static NSString * ballName = @"BALL";
+static NSString * bottomName = @"BOTTOM";
+static NSString * blockName = @"BLOCK";
+static NSString * paddleName = @"PADDLE";
+
+//Physics Collision BitMasks
+static const int ballCategory = 0x1 << 0;
+static const int bottomCategory = 0x1 << 1;
+static const int blockCategory = 0x1 << 2;
+static const int paddleCategory = 0x1 << 3;
+
+//Paddle information
+static const float paddlePositionX = 122.0;
+static const float paddlePositionY = 50.0;
+static const float paddleSizeHeight = 40.0;
+static const float paddleSizeWidth = 150.0;
+
+//Ball information
+static const float ballSize = 15.0;
+static const float ballPositionX = 197.0;
+static const float ballPositionY = 250.0;
+
+//Block information
+
 
 @implementation GameScene
 
@@ -22,19 +44,15 @@
     
     self.physicsWorld.gravity = CGVectorMake(0.0, 0.0);
     
-    //Physics Collision BitMasks
-    static const int ballCategory = 0x1 << 0;
-    static const int bottomCategory = 0x1 << 1;
-    static const int blockCategory = 0x1 << 2;
-    static const int paddleCategory = 0x1 << 3;
+    
     
     //Border on the phone to prevent things from flying off the screen
     self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
     self.physicsBody.friction = 0.0;
     
     //Ball
-    float ballSize = 20.0;
     Ball * ball = [Ball shapeNodeWithCircleOfRadius:ballSize];
+    ball.name = ballName;
     ball.fillColor = [UIColor blueColor];
     ball.position = CGPointMake(250.0, 600.0);
     ball.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:ballSize];
@@ -45,17 +63,17 @@
     ball.physicsBody.allowsRotation = NO;
     [self addChild:ball];
     
-    [ball.physicsBody applyImpulse:CGVectorMake(100.0f, -100.0f)];
+    [ball.physicsBody applyImpulse:CGVectorMake(50.0f, -50.0f)];
     
     //Paddle
-    Paddle * paddle = [Paddle shapeNodeWithRect:CGRectMake(0.0, 0.0,
-                                                           PADDLE_SIZE_WIDTH, PADDLE_SIZE_HEIGHT)];
+    Paddle * paddle = [Paddle shapeNodeWithRect:CGRectMake(0.0, 0.0, paddleSizeWidth, paddleSizeHeight)];
+    paddle.name = paddleName;
     paddle.fillColor = [UIColor blackColor];
-    paddle.position = CGPointMake(250.0, PADDLE_HEIGHT);
-    paddle.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(PADDLE_SIZE_WIDTH,
-                                                                           PADDLE_SIZE_HEIGHT)
-                                                         center:CGPointMake(PADDLE_SIZE_WIDTH/2.0,
-                                                                            PADDLE_SIZE_HEIGHT/2.0)];
+    paddle.position = CGPointMake(paddlePositionX, paddlePositionY);
+    paddle.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(paddleSizeWidth,
+                                                                           paddleSizeHeight)
+                                                         center:CGPointMake(paddleSizeWidth/2.0,
+                                                                            paddleSizeHeight/2.0)];
     paddle.physicsBody.dynamic = NO;
     paddle.physicsBody.categoryBitMask = paddleCategory;
     paddle.physicsBody.restitution = 0.1;
@@ -63,61 +81,42 @@
     [self addChild:paddle];
 }
 
--(void)setDraggedNode:(SKNode*) draggedNode {
-    // Previous.
-    _draggedNode.physicsBody.affectedByGravity = YES;
+-(void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event {
+    /* Called when a touch begins */
+    UITouch* touch = [touches anyObject];
+    CGPoint touchLocation = [touch locationInNode:self];
     
-    _draggedNode = draggedNode; // Set
+    NSLog(@"Touch Began: %@", touch);
     
-    // New.
-    draggedNode.physicsBody.affectedByGravity = NO;
+    SKPhysicsBody* body = [self.physicsWorld bodyAtPoint:touchLocation];
+    if (body && [body.node isKindOfClass:[Paddle class]]) {
+        NSLog(@"Began touch on paddle");
+        self.isFingerOnPaddle = YES;
+    }
 }
 
--(void)touchesBegan:(NSSet*) touches withEvent:(UIEvent*) event
-{
-    CGPoint touchLocation = [[touches anyObject] locationInNode:self];
-    Paddle * touchedNode = (Paddle *) [self nodeAtPoint:touchLocation];
-    if ([touchedNode isKindOfClass:[Paddle class]] == NO) return; // Checks
-    
-    // Track and save offset (with the new SKNode feature).
-    self.draggedNode = touchedNode;
-    touchedNode.touchOffset = CGPointMake(touchLocation.x - self.draggedNode.position.x, PADDLE_HEIGHT);
+-(void)touchesMoved:(NSSet*)touches withEvent:(UIEvent*)event {
+    //Checking to see if the touch is on the paddle
+    if (self.isFingerOnPaddle) {
+        //Getting the touch point
+        UITouch* touch = [touches anyObject];
+        CGPoint touchLocation = [touch locationInNode:self];
+        CGPoint previousLocation = [touch previousLocationInNode:self];
+        //Getting the node for the paddle
+        Paddle * paddle = (Paddle *)[self childNodeWithName:paddleName];
+        //Calculate new position along x for paddle
+        int paddleX = paddle.position.x + (touchLocation.x - previousLocation.x);
+        //Limit x so that the paddle will not leave the screen to left or right
+        paddleX = MAX(paddleX, paddleSizeWidth/2);
+        paddleX = MIN(paddleX, self.size.width - paddleSizeWidth/2);
+        //Update position of paddle
+        paddle.position = CGPointMake(paddleX, paddle.position.y);
+    }
 }
 
--(void)touchesMoved:(NSSet*) touches withEvent:(UIEvent*) event {
-    // Align with offset (if any)
-    CGPoint touchLocation = [[touches anyObject] locationInNode:self];
-    Paddle * paddle = (Paddle *) self.draggedNode;
-    self.draggedNode.position = CGPointMake(touchLocation.x - paddle.touchOffset.x, PADDLE_HEIGHT);
+-(void)touchesEnded:(NSSet*)touches withEvent:(UIEvent*)event {
+    self.isFingerOnPaddle = NO;
 }
-
--(void)touchesEnded:(NSSet*) touches withEvent:(UIEvent*) event {
-    self.draggedNode = nil;
-}
-
-//-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-//    /* Called when a touch begins */
-//    UITouch *touch = [touches anyObject];
-//    CGPoint touchLocation = [touch locationInNode:self];
-//    SKNode *touchedNode = [self nodeAtPoint:touchLocation];
-//    
-//    if (touchedNode != self) {
-//        touchedNode.physicsBody.affectedByGravity = NO;
-//        touchedNode.position = [touch locationInNode:self];
-//        touchedNode.physicsBody.affectedByGravity = YES;
-//    }
-//}
-
-//-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
-//    /* Called when a touch moves */
-//    UITouch *touch = [touches anyObject];
-//    CGPoint touchLocation = [touch locationInNode:self];
-//    SKNode *touchedNode = [self nodeAtPoint:touchLocation];
-//    
-//    if (touchedNode != self) {
-//        touchedNode.position = [touch locationInNode:self];
-//    }
-//}
 
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */

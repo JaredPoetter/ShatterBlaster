@@ -10,6 +10,7 @@
 
 @interface GameScene : SKScene
 
-@property (nonatomic, strong) SKNode * draggedNode;
+//@property (nonatomic, strong) SKNode * draggedNode;
+@property (nonatomic) BOOL isFingerOnPaddle;
 
 @end
