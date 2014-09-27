@@ -18,5 +18,7 @@
 @property (nonatomic, strong) Ball * ball;
 @property (nonatomic, strong) Paddle * paddle;
 @property (nonatomic, strong) SKLabelNode * startLabel;
+@property (nonatomic, strong) SKLabelNode * scoreLabel;
+@property (nonatomic) int score;
 
 @end

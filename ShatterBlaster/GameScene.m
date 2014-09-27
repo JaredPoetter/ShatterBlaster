@@ -22,8 +22,8 @@ static const int blockCategory = 0x1 << 2;
 static const int paddleCategory = 0x1 << 3;
 
 //Paddle information
-static const float paddlePositionX = 122.0;
-static const float paddlePositionY = 50.0;
+static const float paddlePositionX = 197.0;
+static const float paddlePositionY = 100.0;
 static const float paddleSizeHeight = 40.0;
 static const float paddleSizeWidth = 150.0;
 
@@ -33,12 +33,12 @@ static const float ballPositionX = 197.0;
 static const float ballPositionY = 250.0;
 
 //Block information
-static const float blockSizeHeight = 20.0;
-static const float blockSizeWidth = 30.0;
+static const float blockSizeHeight = 40.0;
+static const float blockSizeWidth = 60.0;
 
 //Level information
-static const int numberOfBlocksVert = 10;
-static const int numberOfBlocksHori = 10;
+static const int numberOfBlocksVert = 5;
+static const int numberOfBlocksHori = 5;
 
 @implementation GameScene
 
@@ -48,12 +48,22 @@ static const int numberOfBlocksHori = 10;
     //Game has not started
     self.gameStarted = NO;
     
+    //Initializing the score to zero
+    self.score = 0;
+    
     //Label to let the user know to tap to start
     self.startLabel = [SKLabelNode labelNodeWithText:@"Double Tap to Start"];
     self.startLabel.fontColor = [UIColor blackColor];
     self.startLabel.fontSize = 50.0;
     self.startLabel.position = CGPointMake(197.0, 350.0);
     [self addChild:self.startLabel];
+    
+    //Score Label
+    self.scoreLabel = [SKLabelNode labelNodeWithText:[NSString stringWithFormat:@"Score: %d", self.score]];
+    self.scoreLabel.fontColor = [UIColor blackColor];
+    self.scoreLabel.fontSize = 20.0;
+    self.scoreLabel.position = CGPointMake(50.0, 700.0);
+    [self addChild:self.scoreLabel];
     
     //Setting up double tap to start the game
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
@@ -66,28 +76,22 @@ static const int numberOfBlocksHori = 10;
     
     //Blocks
     short int level[numberOfBlocksVert][numberOfBlocksHori] = {
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+        {0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0}
     };
     Block * block;
     for (int x = 0; x < numberOfBlocksHori; x++) {
         for (int y = 0; y < numberOfBlocksVert; y++) {
             switch (level[x][y]) {
                 case 0:
-                    block = [Block shapeNodeWithRect:CGRectMake(0.0, 0.0, blockSizeWidth, blockSizeHeight)];
+                    block = [Block shapeNodeWithRectOfSize:CGSizeMake(blockSizeWidth, blockSizeHeight)];
                     block.name = blockName;
                     block.fillColor = [UIColor purpleColor];
-                    block.position = CGPointMake(x * (blockSizeWidth + 4.0) + 22.0, (y * (blockSizeHeight + 10.0)) + 425.0);
-                    block.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(blockSizeWidth, blockSizeHeight)
-                                                                        center:CGPointMake(blockSizeWidth/2.0, blockSizeHeight/2.0)];
+                    block.position = CGPointMake(x * (blockSizeWidth + 8.0) + 60.0, (y * (blockSizeHeight + 10.0)) + 450.0);
+                    block.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(blockSizeWidth, blockSizeHeight)];
                     block.physicsBody.dynamic = NO;
                     block.physicsBody.categoryBitMask = blockCategory;
                     block.physicsBody.friction = 0.0;
@@ -112,9 +116,9 @@ static const int numberOfBlocksHori = 10;
     self.ball.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:ballSize];
     self.ball.physicsBody.categoryBitMask = ballCategory;
     self.ball.physicsBody.contactTestBitMask = blockCategory | bottomCategory;
-    self.ball.physicsBody.friction = 0.0;
-    self.ball.physicsBody.restitution = 1.0;
-    self.ball.physicsBody.linearDamping = 0.0;
+    self.ball.physicsBody.friction = 0.0f;
+    self.ball.physicsBody.restitution = 1.0f;
+    self.ball.physicsBody.linearDamping = 0.0f;
     self.ball.physicsBody.allowsRotation = NO;
     [self addChild:self.ball];
     
@@ -178,10 +182,18 @@ static const int numberOfBlocksHori = 10;
     if (contact.bodyA.categoryBitMask == ballCategory && contact.bodyB.categoryBitMask == blockCategory) {
 //         NSLog(@"collision");
         [contact.bodyB.node removeFromParent];
+        
+        //Updating the score
+        self.score++;
+        self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.score];
     }
     else if (contact.bodyB.categoryBitMask == ballCategory && contact.bodyA.categoryBitMask == blockCategory) {
 //         NSLog(@"collision");
         [contact.bodyA.node removeFromParent];
+        
+        //Updating the score
+        self.score++;
+        self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.score];
     }
 }
 
@@ -203,6 +215,14 @@ static const int numberOfBlocksHori = 10;
 
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
+    static int maxSpeed = 1000;
+    float speed = sqrt(self.ball.physicsBody.velocity.dx * self.ball.physicsBody.velocity.dx +
+                       self.ball.physicsBody.velocity.dy * self.ball.physicsBody.velocity.dy);
+    if (speed > maxSpeed) {
+        self.ball.physicsBody.linearDamping = 0.4f;
+    } else {
+        self.ball.physicsBody.linearDamping = 0.0f;
+    }
 }
 
 @end
