@@ -37,7 +37,7 @@ static const float blockSizeHeight = 20.0;
 static const float blockSizeWidth = 30.0;
 
 //Level information
-static const int numberOfBlocksVert = 15;
+static const int numberOfBlocksVert = 10;
 static const int numberOfBlocksHori = 10;
 
 @implementation GameScene
@@ -52,7 +52,7 @@ static const int numberOfBlocksHori = 10;
     self.startLabel = [SKLabelNode labelNodeWithText:@"Double Tap to Start"];
     self.startLabel.fontColor = [UIColor blackColor];
     self.startLabel.fontSize = 50.0;
-    self.startLabel.position = CGPointMake(197.0, 600.0);
+    self.startLabel.position = CGPointMake(197.0, 350.0);
     [self addChild:self.startLabel];
     
     //Setting up double tap to start the game
@@ -75,11 +75,6 @@ static const int numberOfBlocksHori = 10;
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
     };
     Block * block;
@@ -90,7 +85,7 @@ static const int numberOfBlocksHori = 10;
                     block = [Block shapeNodeWithRect:CGRectMake(0.0, 0.0, blockSizeWidth, blockSizeHeight)];
                     block.name = blockName;
                     block.fillColor = [UIColor purpleColor];
-                    block.position = CGPointMake(x * (blockSizeWidth + 4.0) + 22.0, (y * (blockSizeHeight + 10.0)) + 275.0);
+                    block.position = CGPointMake(x * (blockSizeWidth + 4.0) + 22.0, (y * (blockSizeHeight + 10.0)) + 425.0);
                     block.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(blockSizeWidth, blockSizeHeight)
                                                                         center:CGPointMake(blockSizeWidth/2.0, blockSizeHeight/2.0)];
                     block.physicsBody.dynamic = NO;
@@ -124,15 +119,13 @@ static const int numberOfBlocksHori = 10;
     [self addChild:self.ball];
     
     //Paddle
-    self.paddle = [Paddle shapeNodeWithRect:CGRectMake(0.0, 0.0, paddleSizeWidth, paddleSizeHeight)];
+//    self.paddle = [Paddle shapeNodeWithRect:CGRectMake(0.0, 0.0, paddleSizeWidth, paddleSizeHeight)];
+    self.paddle = [Paddle shapeNodeWithRectOfSize:CGSizeMake(paddleSizeWidth, paddleSizeHeight)];
     self.paddle.name = paddleName;
     self.paddle.fillColor = [UIColor blackColor];
     self.paddle.position = CGPointMake(paddlePositionX, paddlePositionY);
 //    self.paddle.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:paddle.frame.size];
-    self.paddle.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(paddleSizeWidth,
-                                                                           paddleSizeHeight)
-                                                         center:CGPointMake(paddleSizeWidth/2.0,
-                                                                            paddleSizeHeight/2.0)];
+    self.paddle.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(paddleSizeWidth, paddleSizeHeight)];
     self.paddle.physicsBody.dynamic = NO;
     self.paddle.physicsBody.categoryBitMask = paddleCategory;
     self.paddle.physicsBody.restitution = 0.1;
