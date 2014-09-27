@@ -7,10 +7,16 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "Ball.h"
+#import "Paddle.h"
 
-@interface GameScene : SKScene
+@interface GameScene : SKScene <SKPhysicsContactDelegate>
 
 //@property (nonatomic, strong) SKNode * draggedNode;
 @property (nonatomic) BOOL isFingerOnPaddle;
+@property (nonatomic) BOOL gameStarted;
+@property (nonatomic, strong) Ball * ball;
+@property (nonatomic, strong) Paddle * paddle;
+@property (nonatomic, strong) SKLabelNode * startLabel;
 
 @end
