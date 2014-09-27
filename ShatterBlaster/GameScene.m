@@ -20,6 +20,12 @@
 -(void)didMoveToView:(SKView *)view {
     /* Setup your scene here */
     
+    //Physics Collision BitMasks
+    static const int ballCategory = 0x1 << 0;
+    static const int bottomCategory = 0x1 << 1;
+    static const int blockCategory = 0x1 << 2;
+    static const int paddleCategory = 0x1 << 3;
+    
     //Border on the phone to prevent things from flying off the screen
     self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
     
@@ -29,6 +35,7 @@
     ball.fillColor = [UIColor blueColor];
     ball.position = CGPointMake(250.0, 600.0);
     ball.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:ballSize];
+    ball.physicsBody.categoryBitMask = ballCategory;
     [self addChild:ball];
     
     //Paddle
@@ -41,7 +48,7 @@
                                                          center:CGPointMake(PADDLE_SIZE_WIDTH/2.0,
                                                                             PADDLE_SIZE_HEIGHT/2.0)];
     paddle.physicsBody.dynamic = NO;
-//    paddle.physicsBody.collisionBitMask = 0;
+    paddle.physicsBody.categoryBitMask = paddleCategory;
     [self addChild:paddle];
 }
 
