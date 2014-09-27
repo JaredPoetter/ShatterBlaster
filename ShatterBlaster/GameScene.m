@@ -20,6 +20,8 @@
 -(void)didMoveToView:(SKView *)view {
     /* Setup your scene here */
     
+    self.physicsWorld.gravity = CGVectorMake(0.0, 0.0);
+    
     //Physics Collision BitMasks
     static const int ballCategory = 0x1 << 0;
     static const int bottomCategory = 0x1 << 1;
@@ -28,15 +30,22 @@
     
     //Border on the phone to prevent things from flying off the screen
     self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
+    self.physicsBody.friction = 0.0;
     
     //Ball
-    float ballSize = 25.0;
+    float ballSize = 20.0;
     Ball * ball = [Ball shapeNodeWithCircleOfRadius:ballSize];
     ball.fillColor = [UIColor blueColor];
     ball.position = CGPointMake(250.0, 600.0);
     ball.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:ballSize];
     ball.physicsBody.categoryBitMask = ballCategory;
+    ball.physicsBody.friction = 0.0;
+    ball.physicsBody.restitution = 1.0;
+    ball.physicsBody.linearDamping = 0.0;
+    ball.physicsBody.allowsRotation = NO;
     [self addChild:ball];
+    
+    [ball.physicsBody applyImpulse:CGVectorMake(100.0f, -100.0f)];
     
     //Paddle
     Paddle * paddle = [Paddle shapeNodeWithRect:CGRectMake(0.0, 0.0,
@@ -49,6 +58,8 @@
                                                                             PADDLE_SIZE_HEIGHT/2.0)];
     paddle.physicsBody.dynamic = NO;
     paddle.physicsBody.categoryBitMask = paddleCategory;
+    paddle.physicsBody.restitution = 0.1;
+    paddle.physicsBody.friction = 0.4;
     [self addChild:paddle];
 }
 
